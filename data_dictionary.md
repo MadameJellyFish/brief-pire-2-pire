@@ -10,7 +10,6 @@
 | Courses | course_id        | INT             | -        | Not null, Unique, Primary Key       | Identifiant unique de la formation                   | 101                                         |
 |         | course_title     | VARCHAR         | 250      | Not null                            | Titre du cours                                       | "Apprenez à programmer avec JavaScript"     |
 |         | course_description| VARCHAR        | 250      | Not null                            | Description du cours                                 | "Maîtrisez les bases de la programmation JavaScript et sa logique de programmation en réalisant un site web dynamique"           |
-|         | duration      | TIME            | Heure        | Not null                            | Indique la durée de la formation        | 36                                       |
 |         | course_publishing_state      | VARCHAR            | 50        | Not null                            | Indique le statut de la formation        | "Publié"                                       |
 |         | is_valid      | BOOL            | -        | Not null                            | Indique si la formation a été validée ou non         | true                                        |
 | Trainers| trainer_id       | UUID            | 36       | Unique, Not null, Primary Key       | Identifiant unique du formateur                    | "28fac10b-58cc-5372-f567-ee02b2c3d412"     |
@@ -40,6 +39,7 @@
 |         | pedagogical_objective     | VARCHAR         | 250      | Not null                            | Objectif pédagogique du module                                       | "Comprendre et utiliser les fonctions en JavaScript"     |
 |         | block_status      | VARCHAR            | 2        | Not null                            | Indique l'état du module        | "KO"                                       |
 |         | block_publishing_state      | VARCHAR            | 50        | Not null                            | Indique le statut du module        | "Brouillon"                                       |
+|         | duration      | TIME            | Heure        | Not null                            | Indique la durée du module        | 36                                       |
 | Lessons | lesson_id        | INT             | -        | Not null, Unique, Primary Key       | Identifiant unique de la leçon                 | 254                                         |
 |        | lesson_num        | VARCHAR             | -        | Not null       | Indique le numero de la leçon                 | ".2"                                         |
 |         | lesson_title     | VARCHAR         | 250      | Not null                            | Titre de la leçon                                       | "Découvrez les fonctions"     |

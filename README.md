@@ -3,8 +3,7 @@ La mission est de concevoir la base de données d’une plateforme de formation 
 
 # Conception BDD avec MERISE
 ## Contexte du projet
-- Une formation est composé de modules que on même temps est composé de leçons.
-- Les formations sont organisés en modules.
+- Une formation est composée de modules qui sont eux-mêmes composés de leçons.
 - Chaque module est organisé en leçons.
 - Chaque leçon est caractérisé par un numéro de leçon sous forme de Semantic Versionning, un intitulé, un objectif pédagogique, un contenu (textes, images et vidéos), une durée en heures et un auteur.
 - Un module peut faire partie d'une ou plusieurs formations, comme par exemple un pire module "Commandes de base Git" pourrait faire partie d'une pire formation "Frontend Javascript" et "DevOps", voir  plus.
@@ -29,11 +28,11 @@ La mission est de concevoir la base de données d’une plateforme de formation 
     - Un script SQL de la base de données
 
 ## Definition de MERISE
-**M**éthode d'
-**E**tude et de
-**R**éalisation
-**I**nformatique par le
-**S**ous-
-**E**nsamble
+**M**éthode d'<br/>
+**E**tude et de<br/>
+**R**éalisation<br/>
+**I**nformatique par le<br/>
+**S**ystèmes d'<br/>
+**E**ntreprise<br/>
 
-La conception de la base de données pour la plateforme de formation en ligne pire2pire.com peut être consulté en cliquant <a href="database_design.md">ici</a>.
+La conception de la base de données pour la plateforme de formation en ligne pire2pire.com a été réalisée en me basant sur la méthode Merise. Vous pouvez consulter cette conception en cliquant <a href="database_design.md">ici</a>.
