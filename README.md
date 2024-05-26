@@ -1,8 +1,8 @@
-# brief-pire-2-pire
+# ✏️ Brief-pire-2-pire
 La mission est de concevoir la base de données d’une plateforme de formation en ligne nommée pire2pire.com à l'aide de la méthode MERISE.
 
-# Conception BDD avec MERISE
-## Contexte du projet
+# 👩‍💻 Conception BDD avec MERISE
+## 📢 Contexte du projet
 - Une formation est composée de modules qui sont eux-mêmes composés de leçons.
 - Chaque module est organisé en leçons.
 - Chaque leçon est caractérisé par un numéro de leçon sous forme de Semantic Versionning, un intitulé, un objectif pédagogique, un contenu (textes, images et vidéos), une durée en heures et un auteur.
@@ -16,7 +16,7 @@ La mission est de concevoir la base de données d’une plateforme de formation 
 - Chaque apprenant est caractérisé par un numéro d’inscription unique, un nom, un prénom, une adresse et une date de naissance.
 - Un formateur collabore ou est auteur d'un module, est auteur d'une leçon, et est caractérisé par un code, un nom, un prénom.
 
-## Livrables
+## 📜 Livrables
 - Un dépôt Github recensant : 
     - Un README explicite et soigné
     - Une définition de l'acronyme MERISE dans le README.md
@@ -27,7 +27,7 @@ La mission est de concevoir la base de données d’une plateforme de formation 
     - Un MPD
     - Un script SQL de la base de données
 
-## Definition de MERISE
+## 🤓 Definition de MERISE
 **M**éthode d'<br/>
 **E**tude et de<br/>
 **R**éalisation<br/>

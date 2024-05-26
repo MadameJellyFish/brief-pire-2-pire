@@ -1,11 +1,10 @@
-#  Script SQL de la base de données
+# 💾 Script SQL de la base de données
 
 -- Table pour stocker les informations sur les formations
 CREATE TABLE Courses(
    course_id SERIAL,
    course_title VARCHAR(250)  NOT NULL,
    course_description TEXT NOT NULL,
-   duration TIME NOT NULL,
    course_publishing_state VARCHAR(50)  NOT NULL,
    is_valid BOOLEAN NOT NULL,
    PRIMARY KEY(course_id)
@@ -50,6 +49,7 @@ CREATE TABLE Blocks(
    pedagogical_objective VARCHAR(250)  NOT NULL,
    block_status VARCHAR(2)  NOT NULL,
    block_publishing_state VARCHAR(50)  NOT NULL,
+   duration TIME NOT NULL,
    PRIMARY KEY(block_id)
 );
 
