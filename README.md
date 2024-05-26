@@ -35,3 +35,5 @@ La mission est de concevoir la base de données d’une plateforme de formation 
 **I**nformatique par le
 **S**ous-
 **E**nsamble
+
+La conception de la base de données pour la plateforme de formation en ligne pire2pire.com peut être consulté en cliquant <a href="database_design.md">ici</a>.
