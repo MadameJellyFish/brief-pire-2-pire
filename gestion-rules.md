@@ -2,66 +2,71 @@
 
 ## Gestion des utilisateurs
 
-### Un visiteur
-    - Un visiteur n'est pas tenu de posséder un compte
-    - Un visiteur peut consulter les formations disponibles
-    - Un visiteur peut voir les descriptions des formations
-    - Un visiteur peut s'inscrire et créer un compte pour accéder à des fonctionnalités supplémentaires
+### Un Visiteur
+- Un Visiteur n'est pas tenu de posséder un compte
+- Un Visiteur peut consulter les formations disponibles
+- Un Visiteur peut voir les descriptions des Formations
+- Un Visiteur peut s'inscrire et créer un compte pour accéder à des fonctionnalités supplémentaires
 
-### Un apprenant
-#### Caractéristiques
-    - Un apprenant contient un prénom
-    - Un apprenant contient un nom
-    - Un apprenant contient date de naissance
-    - Un apprenant contient une adresse
-    - Un apprenant contient une adresse mail 
-    - Un apprenant contient un mot de passe 
-
-#### Statut et Inscription
-    - Un apprenant est une visiteur qui s'a inscrit avec succès
-    - Un apprenant peut se désinscrire de la plateforme
-    - Un apprenant peux s'inscrire à zéro ou plusieurs formations
+### Un Apprenant
+- Un Apprenant contient un prénom, un nom,une date de naissance, une adresse, une adresse mail et un mot de passe
+- Un Apprenant hérite des droits du Visiteur
+- Un Apprenant est un Visiteur qui s'a inscrit sur la plataforme
+- Un Apprenant peut se désinscrire de la plateforme
+- Un Apprenant peux s'inscrire à zéro ou plusieurs Formations
 
 #### Gestion des Formations
-    - Un apprenant peut valider une formation si tous les modules ont l'état OK
+- Une Formation a un nom, une description et un statut
+- Un Apprenant peut valider une formation si tous les Modules ont l'état OK
 
 #### Gestion des Modules
-    - Un apprenant peut choisir de ne pas suivre certains des modules s'il possède déjà les compétences
-    - Un apprenant est évalué pour chaque module
-    - Un apprenant peut valider un module si tous les leçons ont l'état OK
+- Un Module contient un numéro de Module sous forme de version sémantique, un titre, un objectif pédagogique et un statut
+- Un Apprenant est évalué pour chaque Module
+- Un Apprenant peut valider un Module si tous les Leçons ont l'état OK
 
 #### Gestion des Leçons
-    - Un apprenant est évalué pour chaque leçon
-    - Un apprenant peut arbitrairement valider les modules de leur choix en un clic
+- Un Leçon contient un numéro de Module sous forme de Semantic Versionning, une image, un text et une video, 
+- Un Apprenant est évalué pour chaque Leçon
+- Un Apprenant peut arbitrairement valider les Modules de leur choix en un clic
 
-### Un formateur
-    - Un formateur est caractérisé par un code, un nom, un prénom
-
-#### Permissions et Compte
-    - Un formateur doit obtenir une autorisation de la part d'un administrateur pour s'inscrire en tant que formateur sur la plateforme
-    - Une fois l'autorisation obtenue, un formateur peut créer et activer un compte formateur
-    - Un formateur peut être supprimé, mais les leçons qu'il a créé ne sont pas supprimées avec leur compte
-    - Un formateur peut être aussi un apprenant
-    - Un formateur peut s'inscrire et suivre zero ou plusieurs formations
+### Un Formateur
+- Un Formateur est caractérisé par un code, un nom, un prénom, une adresse mail et un mot de passe
+- Un Administrateur hérite des droits de l'Apprenant
+- Un Formateur doit obtenir une invitation de la part d'un Administrateur pour s'inscrire en tant que Formateur sur la plateforme
+- Un Formateur peut être desactivé, mais les Leçons qu'il a créé ne sont pas supprimées avec leur compte
+- Un Formateur peut être aussi un Apprenant
+- Un Formateur peut s'inscrire et suivre zéro ou plusieurs Formations
 
 #### Gestion des Formations
-    - Un formateur peut créer une formation
-    - Un formateur peut éditer une formation
-    - Un formateur peut supprimer une formation si aucun eleve est inscrit
-    - Un formateur peut ajouter un ou plusieurs tags
+- Un Formateur peut créer un ou plusieurs Formations
+- Un Formateur peut éditer une Formation
+- Un Formateur peut ajouter un ou plusieurs Tags
+- Une Formation possède un statut (Brouillon, Publié, Archivé)
 
 #### Gestion des Modules 
-    - Un formateur est auteur ou collaborateur de zero ou plusieurs modules
-    - Un formateur peut supprimer une module s'il n'a ni leçons ni étudiants inscrits 
+- Un Formateur est auteur ou collaborateur de zéro ou plusieurs Modules
+- Un Formateur peut supprimer un Module s'il n'a ni Leçons ni Etudiants inscrits 
 
 #### Gestion des Leçons
-    - Un formateur est auteur de zero ou plusieurs leçons
-    - Un formateur peut créer une leçon
-    - Un formateur peut éditer une leçon
-    - Un formateur peut supprimer une leçon si elle n'appartient pas à un module
-    - Un formateur peut éditer une leçon, à condition qu'aucun étudiant ne soit actuellement en train de suivre cette leçon
-    - Un formateur peut supprimer une leçon si elle n'est pas associée à un module actif avec des étudiants inscrits
-    - Un formateur peut ajouter une status à une leçon
-        ◦ Brouillon : La leçon est en cours de création et n'est pas prête à être publiée. Elle peut être éditée ou supprimée à tout moment
-        ◦ Publié : La leçon est disponible pour que les étudiants la suivent. Elle peut être éditée uniquement s'il n'y a aucun étudiant actuellement inscrit
-        ◦ Archivé : La leçon a été retirée de la vue publique, mais peut toujours être consultée par le formateur. Elle peut être éditée, publié  ou supprimée
+- Un Formateur est auteur de zéro ou plusieurs Leçons
+- Un Formateur peut créer zéro ou plusieurs Leçons
+- Un Formateur peut ajouter une statut à une Leçon qu'il a crée
+    ◦ Brouillon : La Leçon est en cours de création et n'est pas prête à être publiée. Elle peut être éditée ou supprimée à tout moment
+    ◦ Publié : La Leçon est disponible pour que les Apprenants la suivent. Elle peut être éditée uniquement s'il n'y a aucun Apprenant actuellement inscrit
+    ◦ Archivé : La Leçon a été retirée de la vue publique, mais peut toujours être consultée par le Formateur. Elle peut être éditée, publié  ou supprimée
+
+#### Gestion des Tags
+- Un Tag contient un intitulé
+- Un Tag peut contenir un ou plusieurs Formations
+- Le Tag est au niveau de la Formation
+- Un Formateur peut créer une Tag
+- Un Formateur peut associer un ou plusieurs Tags à une Formation à laquelle il collabore
+
+### Un Administrateur
+- Un Administrateur est caractérisé par un nom, un prénom, une adresse mail et un mot de passe
+- Un Administrateur hérite des droits de l'Apprenant
+- Un Administrateur hérite des droits du Formateur
+- Un Administrateur peut créer un Formateur
+- Un Administrateur peut editer un Formateur
+- Un Administrateur peut activer ou desactiver un Formateur
+- Un Administrateur peut changer le statut d'une Formation pour la rendre disponible (Publié) ou non disponible (Archivé)
