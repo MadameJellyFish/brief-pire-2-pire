@@ -13,6 +13,8 @@
 |         | course_publishing_state      | VARCHAR            | 50        | Not null                            | Indique le statut de la formation        | "Publié"                                       |
 |         | is_valid      | BOOL            | -        | Not null                            | Indique si la formation a été validée ou non         | true                                        |
 | Trainers| trainer_id       | UUID            | 36       | Unique, Not null, Primary Key       | Identifiant unique du formateur                    | "28fac10b-58cc-5372-f567-ee02b2c3d412"     |
+
+|         | trainer_code       | INT            | 50       | Unique, Not null                  | Code du formateur                    | 89     |
 |         | trainer_firstname| VARCHAR         | 50       | Not null                            | Prénom du formateur                                 | "Jean"                                  |
 |         | trainer_lastname | VARCHAR         | 50       | Not null                            | Nom de famille du formateur                          | "Pinero"                                    |
 |         | trainer_email    | VARCHAR         | 250      | Not null, Unique                    | E-mail du formateur                                | "tim120@gmail.com"                          |

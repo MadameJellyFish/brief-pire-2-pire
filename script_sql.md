@@ -64,9 +64,9 @@ CREATE TABLE Admins(
    UNIQUE(admin_email)
 );
 
--- Table pour stocker les informations sur les formateurs
 CREATE TABLE Trainers(
    trainer_id CHAR(36) ,
+   trainer_code VARCHAR(50)  NOT NULL,
    trainer_firtsname VARCHAR(50)  NOT NULL,
    trainer_lastname VARCHAR(50)  NOT NULL,
    trainer_email VARCHAR(250)  NOT NULL,
@@ -74,11 +74,11 @@ CREATE TABLE Trainers(
    is_active BOOLEAN NOT NULL,
    admin_id CHAR(36)  NOT NULL,
    PRIMARY KEY(trainer_id),
+   UNIQUE(trainer_code),
    UNIQUE(trainer_email),
    FOREIGN KEY(admin_id) REFERENCES Admins(admin_id)
 );
 
--- Table pour stocker les informations sur les leçons
 CREATE TABLE Lessons(
    lesson_id SERIAL,
    lesson_number VARCHAR(50)  NOT NULL,
