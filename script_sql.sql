@@ -1,5 +1,7 @@
 # 💾 Script SQL de la base de données
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- Table pour stocker les informations sur les formations
 CREATE TABLE Courses(
    course_id SERIAL,
@@ -12,7 +14,7 @@ CREATE TABLE Courses(
 
 -- Table pour stocker les informations sur les étudiants
 CREATE TABLE Students(
-   student_id CHAR(36) ,
+   student_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
    student_firstname VARCHAR(50)  NOT NULL,
    student_lastname VARCHAR(50)  NOT NULL,
    birth_date DATE NOT NULL,
@@ -21,7 +23,7 @@ CREATE TABLE Students(
    country VARCHAR(50)  NOT NULL,
    student_email VARCHAR(250)  NOT NULL,
    student_password VARCHAR(250)  NOT NULL,
-   PRIMARY KEY(student_id),
+   PRIMARY KEY(student_uuid),
    UNIQUE(student_email)
 );
 
@@ -55,28 +57,28 @@ CREATE TABLE Blocks(
 
 -- Table pour stocker les informations sur les administrateurs
 CREATE TABLE Admins(
-   admin_id CHAR(36) ,
+   admin_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
    admin_firstname VARCHAR(50)  NOT NULL,
    admin_lastname VARCHAR(50)  NOT NULL,
    admin_email VARCHAR(250)  NOT NULL,
    admin_password VARCHAR(250)  NOT NULL,
-   PRIMARY KEY(admin_id),
+   PRIMARY KEY(admin_uuid),
    UNIQUE(admin_email)
 );
 
 CREATE TABLE Trainers(
-   trainer_id CHAR(36) ,
+   trainer_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
    trainer_code VARCHAR(50)  NOT NULL,
    trainer_firtsname VARCHAR(50)  NOT NULL,
    trainer_lastname VARCHAR(50)  NOT NULL,
    trainer_email VARCHAR(250)  NOT NULL,
    trainer_password VARCHAR(250)  NOT NULL,
    is_active BOOLEAN NOT NULL,
-   admin_id CHAR(36)  NOT NULL,
-   PRIMARY KEY(trainer_id),
+   admin_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
+   PRIMARY KEY(trainer_uuid),
    UNIQUE(trainer_code),
    UNIQUE(trainer_email),
-   FOREIGN KEY(admin_id) REFERENCES Admins(admin_id)
+   FOREIGN KEY(admin_uuid) REFERENCES Admins(admin_uuid)
 );
 
 CREATE TABLE Lessons(
@@ -87,9 +89,9 @@ CREATE TABLE Lessons(
    video_url VARCHAR(500)  NOT NULL,
    lesson_status CHAR(2) ,
    lesson_publishing_state VARCHAR(50)  NOT NULL,
-   trainer_id CHAR(36)  NOT NULL,
+   trainer_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
    PRIMARY KEY(lesson_id),
-   FOREIGN KEY(trainer_id) REFERENCES Trainers(trainer_id)
+   FOREIGN KEY(trainer_uuid) REFERENCES Trainers(trainer_uuid)
 );
 
 -- Table pour gérer la relation entre les leçons et les modules
@@ -113,10 +115,10 @@ CREATE TABLE Courses_Blocks(
 -- Table pour gérer la relation entre les apprenants et les formations
 CREATE TABLE Students_Courses(
    course_id INTEGER,
-   student_id CHAR(36) ,
-   PRIMARY KEY(course_id, student_id),
+   student_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
+   PRIMARY KEY(course_id, student_uuid),
    FOREIGN KEY(course_id) REFERENCES Courses(course_id),
-   FOREIGN KEY(student_id) REFERENCES Students(student_id)
+   FOREIGN KEY(student_uuid) REFERENCES Students(student_uuid)
 );
 
 -- Table pour stocker les informations sur les images
@@ -131,10 +133,10 @@ CREATE TABLE Lessons_Images(
 -- Table pour gérer la relation entre les formateurs et les modules
 CREATE TABLE Blocks_Trainers(
    block_id INTEGER,
-   trainer_id CHAR(36) ,
-   PRIMARY KEY(block_id, trainer_id),
+   trainer_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
+   PRIMARY KEY(block_id, trainer_uuid),
    FOREIGN KEY(block_id) REFERENCES Blocks(block_id),
-   FOREIGN KEY(trainer_id) REFERENCES Trainers(trainer_id)
+   FOREIGN KEY(trainer_uuid) REFERENCES Trainers(trainer_uuid)
 );
 
 -- Table pour gérer la relation entre les formations et les tags
@@ -149,8 +151,8 @@ CREATE TABLE Courses_Tags(
 -- Table pour gérer la relation entre les formateurs et les formations
 CREATE TABLE Trainers_Courses(
    course_id INTEGER,
-   trainer_id CHAR(36) ,
-   PRIMARY KEY(course_id, trainer_id),
+   trainer_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
+   PRIMARY KEY(course_id, trainer_uuid),
    FOREIGN KEY(course_id) REFERENCES Courses(course_id),
-   FOREIGN KEY(trainer_id) REFERENCES Trainers(trainer_id)
+   FOREIGN KEY(trainer_uuid) REFERENCES Trainers(trainer_uuid)
 );
