@@ -18,7 +18,6 @@
 ### 👨‍🏫 Un Formateur
 - Un Formateur est caractérisé par un code, un nom, un prénom, une adresse mail, un mot de passe et un indicateur de son état d'activation
 - Un Administrateur hérite des droits de l'Apprenant
-- Un Formateur doit obtenir une invitation de la part d'un Administrateur pour s'inscrire en tant que Formateur sur la plateforme
 - Un Formateur peut être desactivé, mais les Leçons qu'il a créé ne sont pas supprimées avec leur compte
 
 ### 👮‍♂️ Un Administrateur

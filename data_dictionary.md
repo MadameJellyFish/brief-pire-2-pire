@@ -2,7 +2,7 @@
 
 | Entité  | Attribut         | Type de données | Longueur | Contraintes                         | Description                                          | Exemple                                     |
 |---------|------------------|-----------------|----------|-------------------------------------|------------------------------------------------------|--------------------------------------------|
-| Admins  | admin_uuid         | UUID            | 36       | Unique, Not null, Primary Key       | Identifiant unique de l'admin                        | "f47ac10b-58cc-4372-a567-0e02b2c3d479"     |
+| Admins  | admin_uuid         | UUID            | -       | Unique, Not null, Primary Key       | Identifiant unique de l'admin                        | "f47ac10b-58cc-4372-a567-0e02b2c3d479"     |
 |         | admin_firstname  | VARCHAR         | 50       | Not null                            | Prénom de l'administrateur                           | "Beatriz"                                   |
 |         | admin_lastname   | VARCHAR         | 50       | Not null                            | Nom de famille de l'administrateur                   | "Dupont"                                    |
 |         | admin_email      | VARCHAR         | 250      | Not null, Unique                    | E-mail de l'administrateur                           | "admin-ecole@gmail.com"                     |
@@ -12,7 +12,7 @@
 |         | course_description| VARCHAR        | 250      | Not null                            | Description du cours                                 | "Maîtrisez les bases de la programmation JavaScript et sa logique de programmation en réalisant un site web dynamique"           |
 |         | course_publishing_state      | VARCHAR            | 50        | Not null                            | Indique le statut de la formation        | "Publié"                                       |
 |         | is_valid      | BOOL            | -        | Not null                            | Indique si la formation a été validée ou non         | true                                        |
-| Trainers| trainer_uuid       | UUID            | 36       | Unique, Not null, Primary Key       | Identifiant unique du formateur                    | "28fac10b-58cc-5372-f567-ee02b2c3d412"     |
+| Trainers| trainer_uuid       | UUID            | -       | Unique, Not null, Primary Key       | Identifiant unique du formateur                    | "28fac10b-58cc-5372-f567-ee02b2c3d412"     |
 |         | trainer_code       | INT            | 50       | Unique, Not null                  | Code du formateur                    | 89     |
 |         | trainer_firstname| VARCHAR         | 50       | Not null                            | Prénom du formateur                                 | "Jean"                                  |
 |         | trainer_lastname | VARCHAR         | 50       | Not null                            | Nom de famille du formateur                          | "Pinero"                                    |
@@ -20,8 +20,8 @@
 |         | trainer_password | VARCHAR         | 250      | Not null                            | Mot de passe du formateur                            | "redF!AgAttent10n"                      |
 |         | trainer_password | VARCHAR         | 250      | Not null                            | Mot de passe du formateur                            | "redF!AgAttent10n"                      |
 |         | is_active      | BOOL            | -        | Not null                            | Indique si formateur est active ou non         | true  |
-|         | admin_id       | UUID            | 36       | Not null, Foreign Key (référence Admins)       | Identifiant unique de l'admin                   | “f47ac10b-58cc-4372-a567-0e02b2c3d479”     |    
-| Students| student_uuid       | UUID            | 36       | Unique, Not null, Primary Key       | Identifiant unique de l'apprenant                      | "8rfac10b-58cc-4372-a567-0e02b2c3d436"     |
+|         | admin_id       | UUID            | -       | Not null, Foreign Key (référence Admins)       | Identifiant unique de l'admin                   | “f47ac10b-58cc-4372-a567-0e02b2c3d479”     |    
+| Students| student_uuid       | UUID            | -       | Unique, Not null, Primary Key       | Identifiant unique de l'apprenant                      | "8rfac10b-58cc-4372-a567-0e02b2c3d436"     |
 |         | student_firstname| VARCHAR         | 50       | Not null                            | Prénom de l'apprenant                                 | "Timothée"                                  |
 |         | student_lastname | VARCHAR         | 50       | Not null                            | Nom de famille de l'apprenant                         | "Dupont"                                    |
 |         | birth_date       | DATE            | -        | Not null                            | Date de naissance de l'apprenant                      | "1988-03-28"                                |
