@@ -35,4 +35,4 @@ La mission est de concevoir la base de données d’une plateforme de formation 
 **S**ystèmes d'<br/>
 **E**ntreprise<br/>
 
-La conception de la base de données pour la plateforme de formation en ligne pire2pire.com a été réalisée en me basant sur la méthode Merise. Vous pouvez consulter cette conception en cliquant <a href="database_design.md">ici</a>.
+La conception de la base de données pour la plateforme de formation en ligne pire2pire.com a été réalisée en me basant sur la méthode Merise. Vous pouvez consulter cette conception en cliquant <a href="Merise/database_design.md">ici</a>.

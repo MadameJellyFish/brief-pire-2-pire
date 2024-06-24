@@ -28,6 +28,7 @@
 - Un Administrateur peut editer un Formateur
 - Un Administrateur peut activer ou desactiver un Formateur
 - Un Administrateur peut changer le statut d'une Formation pour la rendre disponible (Publié) ou non disponible (Archivé)
+- Un Administrateur peut créer un Tag
 
 ## 🧮 Gestion des Formations
 - Une fomation contient un nom, une description, une durée, un état de publication et un état de validation
@@ -52,7 +53,7 @@
 - Un Apprenant peut arbitrairement valider les Modules de leur choix en un clic
 - Un Formateur est auteur de zéro ou plusieurs Leçons
 - Un Formateur peut créer zéro ou plusieurs Leçons
-- Un Formateur peut ajouter une statut à une Leçon qu'il a crée
+- Un Formateur doit ajouter une statut à une Leçon qu'il a crée
     ◦ Brouillon : La Leçon est en cours de création et n'est pas prête à être publiée. Elle peut être éditée ou supprimée à tout moment
     ◦ Publié : La Leçon est disponible pour que les Apprenants la suivent. Elle peut être éditée uniquement s'il n'y a aucun Apprenant actuellement inscrit
     ◦ Archivé : La Leçon a été retirée de la vue publique, mais peut toujours être consultée par le Formateur. Elle peut être éditée, publié  ou supprimée
@@ -61,5 +62,5 @@
 - Un Tag contient un intitulé
 - Un Tag peut contenir un ou plusieurs Formations
 - Le Tag est au niveau de la Formation
-- Un Formateur peut créer une Tag
+- Un Administrateur peut créer une Tag
 - Un Formateur peut associer un ou plusieurs Tags à une Formation à laquelle il collabore

@@ -7,10 +7,14 @@
 |         | admin_lastname   | VARCHAR         | 50       | Not null                            | Nom de famille de l'administrateur                   | "Dupont"                                    |
 |         | admin_email      | VARCHAR         | 250      | Not null, Unique                    | E-mail de l'administrateur                           | "admin-ecole@gmail.com"                     |
 |         | admin_password   | VARCHAR         | 250      | Not null                            | Mot de passe de l'administrateur                     | "Azerty123!"                                |
+| Publishing_states | publishing_state_id        | SERIAL             | -        | Not null, Unique, Primary Key       | Identifiant unique du status de publication                   | 1                                         |
+|         | publishing_state_type     | VARCHAR         | 50      | Not null                            | Type de statut de publication                                       | "Publié"     |
+| Status | status_id        | SERIAL             | -        | Not null, Unique, Primary Key       | Identifiant unique de l'état                   | 1                                         |
+|         |status_type     | VARCHAR         | 50      | Not null                            | Type d'état                                      | "OK"     |
 | Courses | course_id        | SERIAL             | -        | Not null, Unique, Primary Key       | Identifiant unique de la formation                   | 101                                         |
 |         | course_title     | VARCHAR         | 250      | Not null                            | Titre du cours                                       | "Apprenez à programmer avec JavaScript"     |
 |         | course_description| VARCHAR        | 250      | Not null                            | Description du cours                                 | "Maîtrisez les bases de la programmation JavaScript et sa logique de programmation en réalisant un site web dynamique"           |
-|         | course_publishing_state      | VARCHAR            | 50        | Not null                            | Indique le statut de la formation        | "Publié"                                       |
+|         | publishing_state_id      | INT            | 50        | Not null                            | Indique l'id du statut de la formation        | 1                                       |
 |         | is_valid      | BOOL            | -        | Not null                            | Indique si la formation a été validée ou non         | true                                        |
 | Trainers| trainer_uuid       | UUID            | -       | Unique, Not null, Primary Key       | Identifiant unique du formateur                    | "28fac10b-58cc-5372-f567-ee02b2c3d412"     |
 |         | trainer_code       | INT            | 50       | Unique, Not null                  | Code du formateur                    | 89     |
@@ -38,14 +42,14 @@
 |        | block_num        | INT             | -        | Not null       | Indique le numero de module                 | 5                                         |
 |         | block_title     | VARCHAR         | 250      | Not null                            | Titre du module                                       | "Les fonctions en JavaScript"     |
 |         | pedagogical_objective     | VARCHAR         | 250      | Not null                            | Objectif pédagogique du module                                       | "Comprendre et utiliser les fonctions en JavaScript"     |
-|         | block_status      | VARCHAR            | 2        | Not null                            | Indique l'état du module        | "KO"                                       |
-|         | block_publishing_state      | VARCHAR            | 50        | Not null                            | Indique le statut du module        | "Brouillon"                                       |
+|         | status_id      | SERIAL            | -        | Not null                            | Indique l'état du module        | 2                                       |
+|         | publishing_state_id      | SERIAL            | -        | Not null                            | Indique le statut de publication du module        | 2                                       |
 |         | duration      | TIME            | Heure        | Not null                            | Indique la durée du module        | 36                                       |
 | Lessons | lesson_id        | SERIAL             | -        | Not null, Unique, Primary Key       | Identifiant unique de la leçon                 | 254                                         |
 |        | lesson_num        | VARCHAR             | -        | Not null       | Indique le numero de la leçon                 | ".2"                                         |
 |         | lesson_title     | VARCHAR         | 250      | Not null                            | Titre de la leçon                                       | "Découvrez les fonctions"     |
 |         | text     | TEXT         | -      | Not null                            | Texte de la leçon                                       | "Une fonction est un bloc de code auquel on attribue un nom. Appeler cette fonction permet d’exécuter le code qu’elle contient. On parle donc de fonction, car il s’agit d’un bloc de code qui a un rôle spécifique au sein de votre fichier JavaScript."     |
 |         | video_url                  | VARCHAR      | 500     | Not null                                  | URL de la vidéo associée à la leçon           | "http://example.com/video"                                                                                   |
-|         | lesson_status      | VARCHAR            | 2        | Not null                            | Indique l'état de la leçon        | "OK"                                       |
-|         | lesson_publishing_state      | VARCHAR            | 50        | Not null                            | Indique le statut de la leçon        | "Publié"                                       |
+|         | status_id      | SERIAL            | -        | Not null                            | Indique l'état de la leçon        | 1                                       |
+|         | publishing_state_id      | SERIAL            | -        | Not null                            | Indique le statut de publication de la leçon        | 1                                       |
 |         | trainer_uuid                 | UUID      | -     | Not null, Foreign Key (référence Trainers) | Identifiant du formateur qui a créé la leçon  | “28fac10b-58cc-5372-f567-ee02b2c3d412”            |
