@@ -28,7 +28,10 @@
 - Un Administrateur peut editer un Formateur
 - Un Administrateur peut activer ou desactiver un Formateur
 - Un Administrateur peut changer le statut d'une Formation pour la rendre disponible (Publié) ou non disponible (Archivé)
+- Un Administrateur peut supprimer une formation
 - Un Administrateur peut créer un Tag
+- Un Administrateur peut editer un Tag
+- Un Administrateur peut supprimer un Tag
 
 ## 🧮 Gestion des Formations
 - Une fomation contient un nom, une description, une durée, un état de publication et un état de validation
