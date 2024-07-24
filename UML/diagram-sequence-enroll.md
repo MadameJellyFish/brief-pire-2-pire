@@ -6,4 +6,4 @@ Si l'étudiant décide de s'inscrire au cours, il clique sur le bouton d'inscrip
 
 Ce diagramme de séquence illustre de manière détaillée les interactions entre les différentes composantes du système (étudiant, front-end, API, et base de données) pour accomplir la tâche d'inscription à un cours.
 
-![Diagramme de sequence d'inscription au cours](/assets/imgs/sequence-diagram-enrolle-course.jpg)
+![Diagramme de séquence d'inscription au cours](/assets/imgs/sequence-diagram-enrolle-course.jpg)
