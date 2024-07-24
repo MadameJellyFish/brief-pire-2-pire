@@ -1,0 +1,3 @@
+Le diagramme d'activité montre le processus de validation d'un cours. Le processus commence par l'étudiant qui navigue vers la page des cours suivis et sélectionne un cours. Le système récupère alors les détails du cours et vérifie le statut de chaque module. Si tous les modules ont le statut "OK", le cours est validé. Sinon, le système indique que le cours n'est pas validé. Le diagrama illustre clairement les étapes que le système et l'étudiant doivent suivre pour valider un cours.
+
+![Diagramme d'activité validation d'un cours'](/assets/imgs/activity-diagram.jpg)
