@@ -2,6 +2,15 @@
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
+-- Table pour stocker les informations sur les formations
+CREATE TABLE Courses(
+   course_id SERIAL,
+   course_title VARCHAR(250)  NOT NULL,
+   course_description TEXT NOT NULL,
+   is_valid BOOLEAN NOT NULL,
+   PRIMARY KEY(course_id)
+);
+
 -- Table pour stocker les informations sur les étudiants
 CREATE TABLE Students(
    student_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
@@ -33,6 +42,16 @@ CREATE TABLE Tags(
    PRIMARY KEY(tag_title)
 );
 
+-- Table pour stocker les informations sur les modules
+CREATE TABLE Blocks(
+   block_id SERIAL,
+   block_num INTEGER NOT NULL,
+   block_title VARCHAR(50)  NOT NULL,
+   pedagogical_objective VARCHAR(250)  NOT NULL,
+   duration TIME NOT NULL,
+   PRIMARY KEY(block_id),
+);
+
 -- Table pour stocker les informations sur les administrateurs
 CREATE TABLE Admins(
    admin_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
@@ -44,47 +63,7 @@ CREATE TABLE Admins(
    UNIQUE(admin_email)
 );
 
--- Table pour stocker les informations sur les status de publication
-CREATE TABLE Publishing_states(
-   publishing_state_id SERIAL,
-   publishing_state_type VARCHAR(50)  NOT NULL,
-   PRIMARY KEY(publishing_state_id),
-   UNIQUE(publishing_state_type)
-);
-
--- Table pour stocker les informations sur le status
-CREATE TABLE Status(
-   status_id SERIAL,
-   status_type CHAR(2)  NOT NULL,
-   PRIMARY KEY(status_id),
-   UNIQUE(status_type)
-);
-
--- Table pour stocker les informations sur les formations
-CREATE TABLE Courses(
-   course_id SERIAL,
-   course_title VARCHAR(250)  NOT NULL,
-   course_description TEXT NOT NULL,
-   is_valid BOOLEAN NOT NULL,
-   publishing_state_id INTEGER NOT NULL,
-   PRIMARY KEY(course_id),
-   FOREIGN KEY(publishing_state_id) REFERENCES Publishing_states(publishing_state_id)
-);
-
--- Table pour stocker les informations sur les modules
-CREATE TABLE Blocks(
-   block_id SERIAL,
-   block_num INTEGER NOT NULL,
-   block_title VARCHAR(50)  NOT NULL,
-   pedagogical_objective VARCHAR(250)  NOT NULL,
-   duration TIME NOT NULL,
-   publishing_state_id INTEGER NOT NULL,
-   status_id INTEGER NOT NULL,
-   PRIMARY KEY(block_id),
-   FOREIGN KEY(publishing_state_id) REFERENCES Publishing_states(publishing_state_id),
-   FOREIGN KEY(status_id) REFERENCES Status(status_id)
-);
-
+-- Table pour stocker les informations du formateur
 CREATE TABLE Trainers(
    trainer_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
    trainer_code VARCHAR(50)  NOT NULL,
@@ -100,19 +79,43 @@ CREATE TABLE Trainers(
    FOREIGN KEY(admin_uuid) REFERENCES Admins(admin_uuid)
 );
 
+-- Table pour stocker les informations de la leçon
 CREATE TABLE Lessons(
    lesson_id SERIAL,
    lesson_number VARCHAR(50)  NOT NULL,
    lesson_title VARCHAR(250)  NOT NULL,
    text TEXT NOT NULL,
    video_url VARCHAR(500)  NOT NULL,
-   publishing_state_id INTEGER NOT NULL,
-   status_id INTEGER NOT NULL,
    trainer_uuid UUID DEFAULT uuid_generate_v4() NOT NULL,
    PRIMARY KEY(lesson_id),
-   FOREIGN KEY(publishing_state_id) REFERENCES Publishing_states(publishing_state_id),
-   FOREIGN KEY(status_id) REFERENCES Status(status_id),
    FOREIGN KEY(trainer_uuid) REFERENCES Trainers(trainer_uuid)
+);
+
+-- Table pour stocker les informations sur les status de publication
+CREATE TABLE Publishing_states(
+   publishing_state_id SERIAL,
+   type_publishing_state VARCHAR(50)  NOT NULL,
+   lesson_id INTEGER NOT NULL,
+   course_id INTEGER NOT NULL,
+   block_id INTEGER NOT NULL,
+   PRIMARY KEY(publishing_state_id),
+   UNIQUE(type_publishing_state),
+   FOREIGN KEY(lesson_id) REFERENCES Lessons(lesson_id),
+   FOREIGN KEY(course_id) REFERENCES Courses(course_id),
+   FOREIGN KEY(block_id) REFERENCES Blocks(block_id)
+);
+
+
+-- Table pour stocker les informations sur le status
+CREATE TABLE Status(
+   status_id SERIAL,
+   type_status CHAR(2)  NOT NULL,
+   lesson_id INTEGER NOT NULL,
+   block_id INTEGER NOT NULL,
+   PRIMARY KEY(status_id),
+   UNIQUE(type_status),
+   FOREIGN KEY(lesson_id) REFERENCES Lessons(lesson_id),
+   FOREIGN KEY(block_id) REFERENCES Blocks(block_id)
 );
 
 -- Table pour gérer la relation entre les leçons et les modules

@@ -10,11 +10,11 @@ Ce document peut être consulté en cliquant <a href="/Merise/gestion_rules.md">
 
 ## 2. Modèle Conceptuel de Données (MCD)
 Une fois les règles de gestion définies, j'ai créé le Modèle Conceptuel de Données (MCD). Le MCD représente de manière abstraite les entités du système et les relations entre elles. Pour cette étape, j'ai utilisé l'outil Looping.
-Ce document peut être consulté en cliquant <a href="/assets/imgs/MCD.jpg">ici</a>.
+Ce document peut être consulté en cliquant <a href="/assets/imgs//pire-2-pire-mcd.jpg">ici</a>.
 
 ## 3. Modèle Logique de Données (MLD)
 Après la validation du MCD. J'ai generé le MLD avec l'outil Loooping qui précise les types de données, les contraintes d'intégrité, et les clés primaires et étrangères.
-Ce document peut être consulté en cliquant <a href="/assets/imgs/MLD.jpg">ici</a>.
+Ce document peut être consulté en cliquant <a href="/assets/imgs/pire-2-pire-mld.jpg">ici</a>.
 
 ## 4. Génération du Script SQL pour PostgreSQL
 Enfin, j'ai utilisé Looping pour générer automatiquement le script SQL correspondant au MLD pour PostgreSQL. Ce script contient toutes les instructions nécessaires pour créer les tables, les relations, et les contraintes dans la base de données PostgreSQL.
