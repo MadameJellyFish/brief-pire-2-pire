@@ -1,7 +1,6 @@
-# ✏️ Brief-pire-2-pire
-La mission est de concevoir  la partie UML d’une plateforme de formation en ligne nommée pire2pire.com.
+# ✏️ Brief-pire-2-pire UML
+La mission est de concevoir la partie UML d’une plateforme de formation en ligne nommée pire2pire.com.
 
-# 👩‍💻 Conception BDD avec MERISE
 ## 📢 Contexte du projet
 - Une formation est composée de modules qui sont eux-mêmes composés de leçons.
 - Chaque module est organisé en leçons.
@@ -26,4 +25,4 @@ La mission est de concevoir  la partie UML d’une plateforme de formation en li
     - Un document expliquant les choix de conception
 
 
-La conception de la base de données pour la plateforme de formation en ligne pire2pire.com a été réalisée en me basant sur la méthode Merise. Vous pouvez consulter cette conception en cliquant <a href="UML/">ici</a>.
+Vous pouvez consulter la conception de la partie UML en cliquant <a href="UML/uml.md">ici</a>.
